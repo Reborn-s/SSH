@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.multipart.maxSize" value="102400"/>
+    <constant name="struts.custom.i18n.resources" value="com.reborn.resources.fileuploadmessage"/>
+    <package name="p1" extends="struts-default" >
+        <action name="uploadAction" class="com.reborn.web.action.UploadAction" method="upload">
+            <interceptor-ref name="defaultStack">
+                <param name="fileUpload.allowedExtensions">.jpg,.png</param>
+                <param name="fileUpload.allowedTypes">image.bmp,image/pjpeg,image/jpeg</param>
+            </interceptor-ref>
+            <result name="input">/upload.jsp</result>
+        </action>
+
+        <action name="multiUploadAction" class="com.reborn.web.action.MultiUploadAction" method="upload">
+            <interceptor-ref name="defaultStack">
+                <param name="fileUpload.allowedExtensions">.jpg,.png</param>
+                <param name="fileUpload.allowedTypes">image.bmp,image/pjpeg,image/jpeg</param>
+            </interceptor-ref>
+            <result name="input">/multiUpload.jsp</result>
+        </action>
+
+        <action name="downloadAction" class="com.reborn.web.action.DownloadAction" method="download">
+            <result name="success" type="stream">
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename=${filename}</param>
+                <param name="contentType">application/octet-stream</param>
+            </result>
+        </action>
+    </package>
+</struts>

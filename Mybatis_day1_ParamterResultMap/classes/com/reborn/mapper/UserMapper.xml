@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UserMapper">
+    <select id="findUserById" parameterType="int" resultType="user">
+        SELECT * FROM USER WHERE id = #{id}
+    </select>
+
+    <select id="findUserByName" parameterType="java.lang.String" resultType="user">
+        SELECT * FROM USER WHERE username LIKE '${value}'
+    </select>
+
+    <insert id="insertUser" parameterType="user">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO USER
+        (username,birthday,sex,address)
+        VALUES(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <select id="findUserList" parameterType="userQueryVo" resultType="userExt">
+        SELECT * FROM USER
+        WHERE sex=#{userExt.sex}
+        AND username LIKE '%${userExt.username}%'
+    </select>
+
+    <select id="findUserCount" parameterType="userQueryVo" resultType="int">
+        SELECT COUNT(*) FROM USER
+        WHERE sex=#{userExt.sex}
+        AND username LIKE '%${userExt.username}%'
+    </select>
+
+    <resultMap id="userResultMap" type="user">
+        <id column="user_id" property="id"/>
+        <result column="user_name" property="username"/>
+        <result column="user_address" property="address"/>
+    </resultMap>
+
+    <select id="findUserByIdResultMap" parameterType="int" resultMap="userResultMap">
+        SELECT id user_id,username user_name,address user_address FROM USER
+        WHERE id=#{id}
+    </select>
+
+    <!--if where的使用-->
+    <select id="findUserListIf" parameterType="userQueryVo" resultType="userExt">
+        SELECT * FROM USER
+        <where>
+            <if test="userExt!=null">
+                <if test="userExt.sex!=null and userExt.sex!=''">
+                    AND sex = #{userExt.sex}
+                </if>
+                <if test="userExt.username!=null and userExt.username!=''">
+                    AND username LIKE '%${userExt.username}%'
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="findUserCountIf" parameterType="userQueryVo" resultType="int">
+        SELECT COUNT(*) FROM USER
+        <where>
+            <if test="userExt!=null">
+                <if test="userExt.sex!=null and userExt.sex!=''">
+                    AND sex = #{userExt.sex}
+                </if>
+                <if test="userExt.username!=null and userExt.username!=''">
+                    AND username LIKE '%${userExt.username}%'
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <!--sql片段-->
+    <sql id="select_user_where">
+        <if test="userExt!=null">
+            <if test="userExt.sex!=null and userExt.sex!=''">
+                AND sex = #{userExt.sex}
+            </if>
+            <if test="userExt.username!=null and userExt.username!=''">
+                AND username LIKE '%${userExt.username}%'
+            </if>
+        </if>
+    </sql>
+
+    <!--使用sql片段-->
+    <select id="findUserCountSql" parameterType="userQueryVo" resultType="int">
+        SELECT COUNT(*) FROM USER
+        <where>
+            <include refid="select_user_where"/>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!-- 单个定义别名 -->
+        <!--<typeAlias type="UserUser" alias="user"/>-->
+
+        <!-- 批量定义别名（推荐） -->
+        <!-- [name]：指定批量定义别名的类包，别名为类名（首字母大小写都可） -->
+        <package name="com.reborn.po"/>
+    </typeAliases>
+
+    <mappers>
+        <!--注册指定包下的所有映射文件，要求mapper接口和mapper映射文件要名称相同，且放到同一个目录下-->
+        <package name="com.reborn.mapper"/>
+    </mappers>
+</configuration>

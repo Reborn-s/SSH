@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package name="p1" extends="struts-default">
+        <interceptors>
+            <interceptor name="myInterceptor" class="com.reborn.web.interceptor.MyInterceptor">
+            </interceptor>
+            <interceptor name="myInterceptor2" class="com.reborn.web.interceptor.MyInterceptor2">
+            </interceptor>
+        </interceptors>
+        <action name="action1" class="com.reborn.web.action.Demo1Action" method="execute">
+            <interceptor-ref name="myInterceptor2"></interceptor-ref>
+            <interceptor-ref name="myInterceptor"></interceptor-ref>
+            <result>/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="p2" extends="struts-default" namespace="/login">
+        <interceptors>
+            <interceptor name="loginInterceptor" class="com.reborn.web.interceptor.LoginInterceptor">
+            </interceptor>
+            <interceptor-stack name="my-default-stack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="loginInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="my-default-stack"></default-interceptor-ref>
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
+
+        <action name="login" class="com.reborn.web.action.LoginAction" method="login">
+            <interceptor-ref name="my-default-stack">
+                <param name="loginInterceptor.excludeMethods">login</param>
+            </interceptor-ref>
+            <result type="redirectAction">main</result>
+        </action>
+
+        <action name="main" class="com.reborn.web.action.LoginAction">
+            <result>/main.jsp</result>
+        </action>
+
+        <action name="other" class="com.reborn.web.action.LoginAction">
+            <result>/other.jsp</result>
+        </action>
+    </package>
+</struts>

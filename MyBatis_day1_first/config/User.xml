@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao">
+    <select id="findUserById" parameterType="int" resultType="com.User">
+        SELECT * FROM USER WHERE id = #{id}
+    </select>
+
+    <select id="findUserByName" parameterType="java.lang.String"
+            resultType="com.User">
+        SELECT * FROM USER WHERE username LIKE '%${value}%'
+    </select>
+
+    <insert id="insertUser" parameterType="com.User">
+        INSERT INTO USER
+        (username,birthday,sex,address)
+        VALUES(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <!--获取最后插入对象的主键，并将其赋给对象的id-->
+    <!--keyProper：指定存放生成主键的属性-->
+    <insert id="insertUserLastId" parameterType="com.User">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO USER
+        (username,birthday,sex,address)
+        VALUES(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <!--自增主键之通过UUID的方式设置主键-->
+    <insert id="insertUserUUID" parameterType="com.User">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            SELECT UUID()
+        </selectKey>
+        INSERT INTO USER
+        (id,username,birthday,sex,address)
+        VALUES(#{id},#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <!--
+	通过Oracle的sequence获取主键方式与MySQL的uuid方式基本一致
+    -->
+    <insert id="insertUserSequence" parameterType="com.reborn.po">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            SELECT seq.nextVal FROM dual
+        </selectKey>
+        INSERT INTO USER
+        (id,username,birthday,sex,address)
+        VALUES(#{id},#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+</mapper>

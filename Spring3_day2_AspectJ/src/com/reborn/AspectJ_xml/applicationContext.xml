@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userService" class="com.reborn.AspectJ_xml.UserServiceImpl"></bean>
+    <bean id="myAspect" class="com.reborn.AspectJ_xml.MyAspect"></bean>
+
+    <aop:config>
+        <aop:aspect ref="myAspect">
+            <!--全局切入点配置，可以被多个通知使用-->
+            <aop:pointcut id="myPointCut" expression="execution(* com.reborn.AspectJ_xml.*.*(..))"/>
+            <!--
+            <aop:before method="myBefore" pointcut-ref="myPointCut"/>
+            -->
+
+            <!--只使用一个确定的局部切入点-->
+            <!--
+            <aop:after-returning method="myAfterReturning"
+                                 pointcut="execution(* com.reborn.AspectJ_xml.*.updateUser())"
+                                returning="ret"/>
+                                -->
+
+            <!--
+            <aop:around method="myAround" pointcut-ref="myPointCut"/>
+            -->
+
+            <!--
+            <aop:after method="myAfter" pointcut-ref="myPointCut"/>
+            -->
+
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>
+
+        </aop:aspect>
+    </aop:config>
+</beans>

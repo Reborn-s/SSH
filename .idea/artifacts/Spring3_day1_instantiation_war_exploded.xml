@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Spring3_day1_instantiation:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spring3_day1_instantiation_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Spring3_day1_instantiation/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Spring3_day1_instantiation" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.9.RELEASE" />
+          <element id="file-copy" path="$PROJECT_DIR$/Spring3_day1_instantiation/web/WEB-INF/lib/junit-4.10.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

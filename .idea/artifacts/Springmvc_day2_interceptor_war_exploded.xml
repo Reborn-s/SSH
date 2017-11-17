@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Springmvc_day2_interceptor:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Springmvc_day2_interceptor_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Springmvc_day2_interceptor/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Springmvc_day2_interceptor" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.9.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.10.RELEASE" />
+          <element id="library" level="project" name="MyBatisLib" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_interceptor/web/WEB-INF/lib/jstl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_interceptor/web/WEB-INF/lib/standard.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_interceptor/web/WEB-INF/lib/oscache-2.4.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_interceptor/web/WEB-INF/lib/mybatis-spring-1.2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_interceptor/web/WEB-INF/lib/com.springsource.com.mchange.v2.c3p0-0.9.1.2.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

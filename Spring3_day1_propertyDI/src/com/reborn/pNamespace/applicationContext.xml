@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.reborn.pNamespace.Person"
+            p:name="hebe" p:age="18"
+            p:homeAddr-ref="homeAddress"
+            p:companyAddr-ref="companyAddress"
+    >
+
+    </bean>
+
+    <bean id="homeAddress" class="com.reborn.pNamespace.Address"
+          p:address="Taipei" p:telphone="330"
+    >
+    </bean>
+
+    <bean id="companyAddress" class="com.reborn.pNamespace.Address"
+          p:address="华研" p:telphone="612"
+    >
+    </bean>
+</beans>

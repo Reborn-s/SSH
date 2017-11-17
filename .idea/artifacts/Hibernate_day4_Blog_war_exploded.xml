@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Hibernate_day4_Blog:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Hibernate_day4_Blog_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Hibernate_day4_Blog/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Hibernate_day4_Blog" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate 3.6.10-3.6.10" />
+          <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="file-copy" path="$PROJECT_DIR$/Hibernate_day4_Blog/web/WEB-INF/lib/mysql-connector-java-5.1.37-bin.jar" />
+          <element id="library" level="project" name="Hibernate3.6" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

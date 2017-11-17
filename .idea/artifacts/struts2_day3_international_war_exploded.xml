@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="struts2_day3_international:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/struts2_day3_international_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="struts2_day3_international/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="struts2_day3_international" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts2_day3_international/web/WEB-INF/lib/junit-4.10.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reborn.mapper.ItemsMapper">
+    
+    <select id="countItems" parameterType="items" resultType="int">
+        SELECT COUNT(*) FROM ITEMS WHERE id = #{id}
+    </select>
+
+    <delete id="deleteItems" parameterType="items">
+        DELETE FROM ITEMS WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteItemsByPrimaryKey" parameterType="int">
+        DELETE FROM ITEMS WHERE id = #{id}
+    </delete>
+
+    <insert id="insertItems" parameterType="items">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERI INTO ITEMS
+        (`name`,price,detail,pic,createtime)
+        VALUES(#{name},#{price},#{detail},#{pic},#{createtime})
+    </insert>
+
+    <select id="findAll" resultType="items">
+        SELECT * FROM ITEMS
+    </select>
+
+    <select id="selectItemsById" parameterType="int" resultType="items">
+        SELECT * FROM ITEMS
+        WHERE id = #{id}
+    </select>
+
+    <update id="updateItemsByPrimaryKey" parameterType="items">
+        UPDATE ITEMS
+        SET
+        `name` = #{name,jdbcType=VARCHAR},
+        price = #{price,jdbcType = REAL},
+        pic = #{pic,jdbcType = VARCHAR},
+        createtime = #{createtime,jdbcType = TIMESTAMP}
+        WHERE
+        id = #{id,jdbcType = INTEGER}
+    </update>
+
+    <update id="updateItemsByPrimaryKeySelective" parameterType="items">
+        UPDATE ITEMS
+        <set>
+            <if test="name!=null">
+                `name` = #{name}
+            </if>
+            <if test="price!=null">
+                price = #{price}
+            </if>
+            <if test="pic!=null">
+                pic = #{pic}
+            </if>
+            <if test="createtime!=null">
+                createtime = #{createtime}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

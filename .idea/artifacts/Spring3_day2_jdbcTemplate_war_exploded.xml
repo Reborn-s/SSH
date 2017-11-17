@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Spring3_day2_jdbcTemplate:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spring3_day2_jdbcTemplate_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Spring3_day2_jdbcTemplate/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Spring3_day2_jdbcTemplate" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.9.RELEASE" />
+          <element id="file-copy" path="$PROJECT_DIR$/Spring3_day2_jdbcTemplate/web/WEB-INF/lib/c3p0-0.9.5.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Spring3_day2_jdbcTemplate/web/WEB-INF/lib/commons-dbcp2-2.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Spring3_day2_jdbcTemplate/web/WEB-INF/lib/commons-pool2-2.4.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Spring3_day2_jdbcTemplate/web/WEB-INF/lib/mysql-connector-java-5.1.37-bin.jar" />
+          <element id="library" level="project" name="junit-4.10" />
+          <element id="file-copy" path="$PROJECT_DIR$/Spring3_day2_jdbcTemplate/web/WEB-INF/lib/mchange-commons-java-0.2.11.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

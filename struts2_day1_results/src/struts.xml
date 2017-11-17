@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package name="p1" extends="struts-default" namespace="/n1">
+        <result-types>
+            <result-type name="vcodeResult" class="com.reborn.web.result.CaptchaResult"></result-type>
+        </result-types>
+        <!--全局视图配置-->
+        <global-results>
+            <result name="success" type="vcodeResult">
+                <param name="width">200</param>
+                <param name="height">300</param>
+            </result>
+        </global-results>
+        
+
+        <!--同包转发-->
+        <action name="action1" class="com.reborn.web.action.DemoAction1">
+            <result name="success">/index.jsp</result>
+        </action>
+
+        <!--同包重定向-->
+        <action name="action2" class="com.reborn.web.action.DemoAction1">
+            <result name="success" type="redirect">/index.jsp</result>
+        </action>
+
+        <!--同包转发action-->
+        <action name="action3" class="com.reborn.web.action.DemoAction1">
+            <result name="success" type="chain">action2</result>
+        </action>
+
+        <!--同包重定向action-->
+        <action name="action4" class="com.reborn.web.action.DemoAction1">
+            <result name="success" type="redirectAction">action1</result>
+        </action>
+
+        <!--不同包转发action-->
+        <action name="action5">
+            <result name="success" type="chain">
+                <param name="namespace">/n2</param>
+                <param name="actionName">action1</param>
+            </result>
+        </action>
+
+        <!--不同包重定向action-->
+        <action name="action6">
+            <result name="success" type="redirectAction">
+                <param name="namespace">/n2</param>
+                <param name="actionName">action1</param>
+            </result>
+        </action>
+
+        <action name="VerifyCodeAction" class="com.reborn.web.action.VerifyCodeAction" method="execute">
+            <result name="success" type="vcodeResult">
+                <!--局部视图配置-->
+                <param name="width">200</param>
+                <param name="height">300</param>
+            </result>
+        </action>
+    </package>
+
+
+    <package name="p2" extends="struts-default" namespace="/n2">
+        <action name="action1">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+</struts>

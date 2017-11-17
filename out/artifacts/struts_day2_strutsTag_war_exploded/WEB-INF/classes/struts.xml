@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package name="regist" extends="struts-default">
+        <action name="registAction" class="com.reborn.regist.web.action.UserAction" method="regist">
+            <result name="exists">/exists.jsp</result>
+            <result type="redirect">/success.jsp</result>
+            <result name="input">/regist.jsp</result>
+        </action>
+
+        <action name="findAllAction" class="com.reborn.regist.web.action.UserAction" method="findAll">
+            <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>

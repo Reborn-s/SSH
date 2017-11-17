@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--resouce加载的属性比property加载的属性值更晚，因此property的设置不会覆盖配置文件的值-->
+    <properties resource="db.properties">
+        <property name="db.username" value="123"/>
+
+    </properties>
+    
+    <settings>
+        <setting name="" value=""/>
+    </settings>
+
+    <typeAliases>
+        <!-- 单个定义别名 -->
+        <typeAlias type="com.User" alias="user"/>
+
+        <!-- 批量定义别名（推荐） -->
+        <!-- [name]：指定批量定义别名的类包，别名为类名（首字母大小写都可） -->
+        <package name="com.reborn.po"/>
+    </typeAliases>
+    
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="User.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
+
+        <!--注册指定包下的所有映射文件，要求mapper接口和mapper映射文件要名称相同，且放到同一个目录下-->
+        <package name="com.reborn.mapper"/>
+    </mappers>
+</configuration>

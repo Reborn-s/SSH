@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="struts_day2_regist:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/struts_day2_regist_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="struts_day2_regist/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="struts_day2_regist" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/jstl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/standard.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/c3p0-0.9.5.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/itcast-tools-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/commons-dbutils-1.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/commons-pool2-2.4.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/mchange-commons-java-0.2.11.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/mysql-connector-java-5.1.37-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/struts_day2_regist/web/WEB-INF/lib/commons-beanutils-1.9.3.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

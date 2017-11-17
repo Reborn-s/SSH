@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.reborn.setter.Person">
+        <property name="name" value="hebe"></property>
+        <property name="age">
+            <value>24</value>
+        </property>
+
+        <property name="homeAddr" ref="homeAddress"></property>
+        <property name="companyAddr">
+            <ref bean="companyAddress"/>
+        </property>
+    </bean>
+
+    <bean id="homeAddress" class="com.reborn.setter.Address">
+        <property name="address" value="台北"></property>
+        <property name="telphone" value="330"></property>
+    </bean>
+
+    <bean id="companyAddress" class="com.reborn.setter.Address">
+        <property name="address" value="华研"></property>
+        <property name="telphone" value="618"></property>
+    </bean>
+</beans>

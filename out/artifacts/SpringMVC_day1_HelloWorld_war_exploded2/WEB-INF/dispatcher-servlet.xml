@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置处理器映射器，springmvc默认的处理器映射器
+        BeanNameHandlerMapping:根据bean（自定义Controller）的name属性的url去寻找handler（也就是action）
+    -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/hello1.do">myController</prop>
+                <prop key="/123.do">myController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--配置处理器适配器，Springmvc默认的处理器适配器是SimpleControllerHandlerAdapter-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+    <!--HTTP请求处理器适配器:它执行实现接口HttpRequestHandler的controller
+        如果要执行实现接口HttpRequestHandler的controller，必须在配置文件里手动配置这个adapter，不然会报错-->
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
+
+    <!--参数控制器：可以直接跳转到配置的视图index.jsp去，不用自己定义Controller-->
+    <bean name="/toIndex.do" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="index"/>
+    </bean>
+
+    <!--配置自定义Controller-->
+    <bean id="myController" name="/hello.do" class="com.reborn.controller.MyController"/>
+    <bean name="/httpController.do" class="com.reborn.controller.MyHttpController"/>
+
+    <!--配置Springmvc的视图解析器：解析逻辑视图
+        后台返回逻辑视图：index
+        视图解析器解析出真正的物理视图：前缀+逻辑视图+后缀====/WEB-INF/jsps/index.jsp-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsps/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>

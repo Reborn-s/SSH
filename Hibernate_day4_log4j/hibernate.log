@@ -1,0 +1,72 @@
+16:19:55,081  INFO Version:37 - Hibernate Commons Annotations 3.2.0.Final
+16:19:55,101  INFO Environment:603 - Hibernate 3.6.10.Final
+16:19:55,103  INFO Environment:636 - hibernate.properties not found
+16:19:55,107  INFO Environment:814 - Bytecode provider name : javassist
+16:19:55,112  INFO Environment:695 - using JDK 1.4 java.sql.Timestamp handling
+16:19:55,179  INFO Configuration:2156 - configuring from resource: /hibernate.cfg.xml
+16:19:55,180  INFO Configuration:2175 - Configuration resource: /hibernate.cfg.xml
+16:19:55,282  INFO Configuration:2297 - Configured SessionFactory: null
+16:19:55,345  INFO Configuration:1676 - Hibernate Validator not found: ignoring
+16:19:55,350  INFO HibernateSearchEventListenerRegister:75 - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+16:19:55,355  INFO DriverManagerConnectionProvider:64 - Using Hibernate built-in connection pool (not for production use!)
+16:19:55,355  INFO DriverManagerConnectionProvider:65 - Hibernate connection pool size: 20
+16:19:55,355  INFO DriverManagerConnectionProvider:68 - autocommit mode: true
+16:19:55,365  INFO DriverManagerConnectionProvider:103 - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/hibernate
+16:19:55,366  INFO DriverManagerConnectionProvider:109 - connection properties: {user=root, password=****, autocommit=true}
+16:19:55,893  INFO Dialect:136 - Using dialect: org.hibernate.dialect.MySQLDialect
+16:19:55,915  INFO SettingsFactory:126 - Database ->
+       name : MySQL
+    version : 5.6.35-log
+      major : 5
+      minor : 6
+16:19:55,915  INFO SettingsFactory:132 - Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.37 ( Revision: 09940f05b4c98150f352e787a2549f11a2e9da93 )
+      major : 5
+      minor : 1
+16:19:55,917  INFO TransactionFactoryFactory:62 - Using default transaction strategy (direct JDBC transactions)
+16:19:55,919  INFO TransactionManagerLookupFactory:83 - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+16:19:55,919  INFO SettingsFactory:179 - Automatic flush during beforeCompletion(): disabled
+16:19:55,920  INFO SettingsFactory:183 - Automatic session close at end of transaction: disabled
+16:19:55,920  INFO SettingsFactory:190 - JDBC batch size: 15
+16:19:55,920  INFO SettingsFactory:193 - JDBC batch updates for versioned data: disabled
+16:19:55,921  INFO SettingsFactory:198 - Scrollable result sets: enabled
+16:19:55,922  INFO SettingsFactory:206 - JDBC3 getGeneratedKeys(): enabled
+16:19:55,922  INFO SettingsFactory:214 - Connection release mode: auto
+16:19:55,925  INFO SettingsFactory:238 - Maximum outer join fetch depth: 2
+16:19:55,926  INFO SettingsFactory:241 - Default batch fetch size: 1
+16:19:55,926  INFO SettingsFactory:245 - Generate SQL with comments: disabled
+16:19:55,926  INFO SettingsFactory:249 - Order SQL updates by primary key: disabled
+16:19:55,926  INFO SettingsFactory:253 - Order SQL inserts for batching: disabled
+16:19:55,927  INFO SettingsFactory:431 - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+16:19:55,929  INFO ASTQueryTranslatorFactory:47 - Using ASTQueryTranslatorFactory
+16:19:55,931  INFO SettingsFactory:261 - Query language substitutions: {}
+16:19:55,932  INFO SettingsFactory:266 - JPA-QL strict compliance: disabled
+16:19:55,933  INFO SettingsFactory:271 - Second-level cache: enabled
+16:19:55,933  INFO SettingsFactory:275 - Query cache: disabled
+16:19:55,933  INFO SettingsFactory:406 - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+16:19:55,935  INFO SettingsFactory:285 - Optimize cache for minimal puts: disabled
+16:19:55,935  INFO SettingsFactory:294 - Structured second-level cache entries: disabled
+16:19:55,945  INFO SettingsFactory:314 - Echoing all SQL to stdout
+16:19:55,946  INFO SettingsFactory:323 - Statistics: disabled
+16:19:55,946  INFO SettingsFactory:327 - Deleted entity synthetic identifier rollback: disabled
+16:19:55,947  INFO SettingsFactory:343 - Default entity-mode: pojo
+16:19:55,947  INFO SettingsFactory:347 - Named query checking : enabled
+16:19:55,947  INFO SettingsFactory:351 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+16:19:55,980  INFO SessionFactoryImpl:202 - building session factory
+16:19:55,988  INFO BasicTypeRegistry:150 - Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@3b2cf7ab
+16:19:55,988  INFO BasicTypeRegistry:150 - Type registration [clob] overrides previous : org.hibernate.type.ClobType@2aa5fe93
+16:19:55,989  INFO BasicTypeRegistry:150 - Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@2aa5fe93
+16:19:55,989  INFO BasicTypeRegistry:150 - Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@5c1a8622
+16:19:55,989  INFO BasicTypeRegistry:150 - Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@5ad851c9
+16:19:55,989  INFO BasicTypeRegistry:150 - Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@6156496
+16:19:55,989  INFO BasicTypeRegistry:150 - Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@3c153a1
+16:19:55,990  INFO BasicTypeRegistry:150 - Type registration [blob] overrides previous : org.hibernate.type.BlobType@b62fe6d
+16:19:55,990  INFO BasicTypeRegistry:150 - Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@b62fe6d
+16:19:56,860  INFO SessionFactoryObjectFactory:105 - Not binding factory to JNDI, no JNDI name configured
+16:19:56,871  INFO SchemaUpdate:155 - Running hbm2ddl schema update
+16:19:56,872  INFO SchemaUpdate:167 - fetching database metadata
+16:19:56,874  INFO SchemaUpdate:179 - updating schema
+16:19:56,878  INFO SchemaUpdate:217 - schema update complete
+16:19:56,988  INFO SessionFactoryImpl:927 - closing
+16:19:56,988  INFO DriverManagerConnectionProvider:170 - cleaning up connection pool: jdbc:mysql://localhost:3306/hibernate

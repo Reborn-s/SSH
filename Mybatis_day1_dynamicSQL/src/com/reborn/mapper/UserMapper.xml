@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UserMapper">
+    <!--if where的使用-->
+    <select id="findUserListIf" parameterType="userQueryVo" resultType="userExt">
+        SELECT * FROM USER
+        <where>
+            <if test="userExt!=null">
+                <if test="userExt.sex!=null and userExt.sex!=''">
+                    AND sex = #{userExt.sex}
+                </if>
+                <if test="userExt.username!=null and userExt.username!=''">
+                    AND username LIKE '%${userExt.username}%'
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="findUserCountIf" parameterType="userQueryVo" resultType="int">
+        SELECT COUNT(*) FROM USER
+        <where>
+            <if test="userExt!=null">
+                <if test="userExt.sex!=null and userExt.sex!=''">
+                    AND sex = #{userExt.sex}
+                </if>
+                <if test="userExt.username!=null and userExt.username!=''">
+                    AND username LIKE '%${userExt.username}%'
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <!--sql片段-->
+    <sql id="select_user_where">
+        <if test="userExt!=null">
+            <if test="userExt.sex!=null and userExt.sex!=''">
+                AND sex = #{userExt.sex}
+            </if>
+            <if test="userExt.username!=null and userExt.username!=''">
+                AND username LIKE '%${userExt.username}%'
+            </if>
+        </if>
+    </sql>
+
+    <!--使用sql片段-->
+    <select id="findUserCountSql" parameterType="userQueryVo" resultType="int">
+        SELECT COUNT(*) FROM USER
+        <where>
+            <include refid="select_user_where"/>
+        </where>
+    </select>
+
+    <sql id="foreach">
+        <if test="idList!=null and idList.size>0">
+            <foreach collection="idList" item="id" open="AND id IN(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </sql>
+    <!--foreach的使用-->
+    <select id="findUserInIdList" parameterType="userQueryVo" resultType="userExt">
+        SELECT * FROM USER
+        <where>
+            <include refid="foreach"/>
+        </where>
+    </select>
+
+</mapper>

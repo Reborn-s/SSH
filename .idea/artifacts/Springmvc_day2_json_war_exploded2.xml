@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Springmvc_day2_json:war exploded2">
+    <output-path>$PROJECT_DIR$/out/artifacts/Springmvc_day2_json_war_exploded2</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Springmvc_day2_json/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Springmvc_day2_json" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.9.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.10.RELEASE" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-core-asl-1.9.11.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-mapper-asl-1.9.11.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-core-2.1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-databind-2.1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-annotations-2.1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-core-2.5.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-databind-2.5.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Springmvc_day2_json/web/WEB-INF/lib/jackson-annotations-2.5.4.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

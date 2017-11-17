@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reborn.mapper.UserMapper">
+    <select id="countUser" parameterType="user" resultType="int">
+        SELECT COUNT(*) FROM USER WHERE id = #{id}
+    </select>
+
+    <delete id="deleteUser" parameterType="user">
+        DELETE FROM USER WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteUserByPrimaryKey" parameterType="int">
+        DELETE FROM USER WHERE id = #{id}
+    </delete>
+
+    <insert id="insertUser" parameterType="user">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERI INTO USER
+        (username,birthday,sex,address)
+        VALUES(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <select id="findAll" resultType="user">
+        SELECT * FROM USER
+    </select>
+
+    <select id="selectUserById" parameterType="int" resultType="user">
+        SELECT * FROM USER
+        WHERE id = #{id}
+    </select>
+
+    <update id="updateUserByPrimaryKey" parameterType="user">
+        UPDATE USER
+        SET
+        username = #{username,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType = CHAR},
+        birthday = #{birthday,jdbcType = DATE},
+        address = #{address,jdbcType = VARCHAR}
+        WHERE
+        id = #{id,jdbcType = INTEGER}
+    </update>
+
+    <update id="updateUserByPrimaryKeySelective" parameterType="user">
+        UPDATE USER
+        <set>
+            <if test="username!=null">
+                username = #{username}
+            </if>
+            <if test="sex!=null">
+                sex = #{sex}
+            </if>
+            <if test="address!=null">
+                address = #{address}
+            </if>
+            <if test="birthday!=null">
+                birthday = #{birthday}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

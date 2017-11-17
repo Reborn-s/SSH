@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="colldata" class="com.reborn.CollectionDI.CollectionData">
+        <property name="array">
+            <array>
+                <value>hebe</value>
+                <value>selina</value>
+                <value>ella</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>无常</value>
+                <value>安静了</value>
+                <value>渺小</value>
+                <value>哈哈</value>
+            </list>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>123</value>
+                <value>321</value>
+                <value>231</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="hebe" value="田馥甄"></entry>
+                <entry key="selina" value="任家萱"></entry>
+                <entry key="ella" value="陈嘉桦"></entry>
+            </map>
+        </property>
+
+        <property name="props">
+            <props>
+                <prop key="地址">华研</prop>
+                <prop key="学校">武大</prop>
+            </props>
+        </property>
+
+    </bean>
+</beans>
